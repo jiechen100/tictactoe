@@ -24,7 +24,7 @@ public class Game {
 	private String filepath2;
 
 	@Autowired
-	private GameBoard gb;
+	private GameBoard gameBoard;
 
 	@Autowired
 	private Scanner scanIn;
@@ -52,13 +52,13 @@ public class Game {
 
 			for (int i = 0; i < 2; i++) {
 				players[i].consoleReader(scanIn);
-				gb.setPlayer(players[i], i);
-				players[i].setGameBoard(gb);
+				gameBoard.setPlayer(players[i], i);
+				players[i].setGameBoard(gameBoard);
 				System.out.println("load " + filePaths[i]);
 				if (new File(filePaths[i]).exists()) {
 					fis = new BufferedReader(new FileReader(filePaths[i]));
 					if (fis != null) {
-						gb.init(fis, players[i]);
+						gameBoard.init(fis, players[i]);
 						fis.close();
 						fis = null;
 					}
@@ -73,7 +73,7 @@ public class Game {
 				System.out
 						.println("================================================");
 
-				startNewGame(scanIn, gb, fos);
+				startNewGame(scanIn, gameBoard, fos);
 
 				System.out
 						.println("Do you want another game? (Press enter key for yes, OR n to end game.)");
@@ -84,7 +84,7 @@ public class Game {
 				} else {
 					for (int i = 0; i < 2; i++) {
 						fos = new BufferedWriter(new FileWriter(filePaths[i]));
-						List<String> l = gb.stepString(players[i].loseSteps);
+						List<String> l = gameBoard.stepString(players[i].loseSteps);
 						for (String s : l) {
 							fos.write(s);
 							fos.newLine();

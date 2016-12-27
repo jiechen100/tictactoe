@@ -1,4 +1,4 @@
-package com.jie;
+package com.jie.game;
 
 import java.io.BufferedReader;
 import java.io.IOException;

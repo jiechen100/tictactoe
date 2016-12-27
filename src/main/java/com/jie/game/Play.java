@@ -1,4 +1,4 @@
-package com.jie;
+package com.jie.game;
 
 public interface Play {
 	public int[][] matchPreviousBadMove();

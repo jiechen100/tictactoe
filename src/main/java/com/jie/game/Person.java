@@ -1,4 +1,4 @@
-package com.jie;
+package com.jie.game;
 
 public class Person extends Player {
 

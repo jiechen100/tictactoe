@@ -1,4 +1,4 @@
-package com.jie;
+package com.jie.game;
 
 public enum PlayerType {
 	MACHINE(0, "Machine", "X"), PERSON(1, "Person", "O"), NONE(2, "Empty", " ");

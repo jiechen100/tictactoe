@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameBoard {
+	private BoardType boardType = BoardType.CONSOLE;
 	private final int size = 3;
 	private PlayerType[][] board;
 	private PlayerType winner;
@@ -18,6 +19,10 @@ public class GameBoard {
 	protected StringBuilder sb() {
 		sb.setLength(0);
 		return sb;
+	}
+
+	public void setBoardType(BoardType boardType) {
+		this.boardType = boardType;
 	}
 
 	public void setPlayer(Player player, int i) {
@@ -121,10 +126,19 @@ public class GameBoard {
 
 	}
 
+	public boolean isConsoleGame() {
+		return boardType == BoardType.CONSOLE;
+	}
+
 	public boolean move() {
+		if (isPersonTurn() && isConsoleGame()) {
+			System.out.println("Please enter your choice ...");
+		}
 		boolean b = players[this.moveCount % 2].move();
 		if (!b) {
-			System.out.println("Cannot move any more !!!");
+			if (isConsoleGame()) {
+				System.out.println("Cannot move any more !!!");
+			}
 		}
 
 		return b;
@@ -141,16 +155,20 @@ public class GameBoard {
 	public boolean validateYourMove(int[] xy, boolean printMsg) {
 		// x, y from 1 to size
 		if (xy == null || !isValidateRowCol(xy[0]) || !isValidateRowCol(xy[1])) {
-			System.out
-					.println("Warning: Invalid move. A valid row/col is between 1 to "
-							+ size);
+			if (isConsoleGame()) {
+				System.out
+						.println("Warning: Invalid move. A valid row/col is between 1 to "
+								+ size);
+			}
 			return false;
 		}
 
 		if (isTaken(xy[0], xy[1])) {
 			if (printMsg) {
-				System.out.println("Warning: Invalid move. " + xy[0] + ","
-						+ xy[1] + " was taken.");
+				if (isConsoleGame()) {
+					System.out.println("Warning: Invalid move. " + xy[0] + ","
+							+ xy[1] + " was taken.");
+				}
 			}
 			return false;
 		}
@@ -263,13 +281,19 @@ public class GameBoard {
 		// System.out.println("\n\nScore Block **************");
 		switch (winner) {
 		case MACHINE:
-			System.out.println("Info: Machine is the winner.");
+			if (isConsoleGame()) {
+				System.out.println("Info: Machine is the winner.");
+			}
 			break;
 		case PERSON:
-			System.out.println("Info: You are the winner.");
+			if (isConsoleGame()) {
+				System.out.println("Info: You are the winner.");
+			}
 			break;
 		default:
-			System.out.println("Info: No winner.");
+			if (isConsoleGame()) {
+				System.out.println("Info: No winner.");
+			}
 			break;
 		}
 
@@ -327,7 +351,9 @@ public class GameBoard {
 			throws IOException {
 		loseSteps.add(ss);
 		String s = stepString(ss);
-		System.out.println(msg + s);
+		if (isConsoleGame()) {
+			System.out.println(msg + s);
+		}
 	}
 
 	public void recordCurrentStepsAndRotateSteps() throws IOException {

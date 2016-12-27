@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-@ContextConfiguration(classes = com.jie.app.TictactoeApplication.class)
+@ContextConfiguration(classes = com.jie.app.WebApplication.class)
 public class HelloTemplateControllerTest {
 
 	@LocalServerPort

@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Game {
+public class ConsoleGame {
 	@Value("${filepath1}")
 	private String filepath1;
 	@Value("${filepath2}")
@@ -49,7 +49,7 @@ public class Game {
 		String inStr;
 
 		try {
-
+			gameBoard.setBoardType(BoardType.CONSOLE);
 			for (int i = 0; i < 2; i++) {
 				players[i].consoleReader(scanIn);
 				gameBoard.setPlayer(players[i], i);
@@ -84,7 +84,8 @@ public class Game {
 				} else {
 					for (int i = 0; i < 2; i++) {
 						fos = new BufferedWriter(new FileWriter(filePaths[i]));
-						List<String> l = gameBoard.stepString(players[i].loseSteps);
+						List<String> l = gameBoard
+								.stepString(players[i].loseSteps);
 						for (String s : l) {
 							fos.write(s);
 							fos.newLine();

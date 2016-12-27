@@ -1,7 +1,7 @@
-app.controller('usersController', function($scope) {
-    $scope.headingTitle = "User List";
+app.controller('boardController', function($scope) {
+    $scope.headingTitle = "Game Board";
 });
 
-app.controller('rolesController', function($scope) {
-    $scope.headingTitle = "Roles List";
+app.controller('scoreController', function($scope) {
+    $scope.headingTitle = "Your Score";
 });

@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-@ContextConfiguration(classes = com.jie.app.TictactoeApplication.class)
+@ContextConfiguration(classes = com.jie.app.WebApplication.class)
 public class HelloMockMvcControllerTest {
 
 	@Autowired

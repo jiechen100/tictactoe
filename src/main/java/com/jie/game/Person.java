@@ -16,11 +16,13 @@ public class Person extends Player {
 	@Override
 	public boolean move() {
 		while (true) {
-			System.out.println("Please enter your choice ...");
+
 			String inStr = scanIn.nextLine();
 
 			if (inStr == null || inStr.isEmpty()) {
-				System.out.println("Game is over.");
+				if (gameBoard.isConsoleGame()) {
+					System.out.println("Game is over.");
+				}
 				return false;
 			}
 

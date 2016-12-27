@@ -1,15 +1,16 @@
 var app = angular.module('app', ['ngRoute','ngResource']);
 app.config(function($routeProvider){
     $routeProvider
-        .when('/users',{
-            templateUrl: '/views/users.html',
-            controller: 'usersController'
+        .when('/board',{
+            templateUrl: '/views/board.html',
+            controller: 'boardController'
         })
-        .when('/roles',{
-            templateUrl: '/views/roles.html',
-            controller: 'rolesController'
+        .when('/score',{
+            templateUrl: '/views/score.html',
+            controller: 'scoreController'
         })
         .otherwise(
             { redirectTo: '/'}
         );
 });
+

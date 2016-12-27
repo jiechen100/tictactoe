@@ -10,28 +10,46 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.jie.game.BoardType;
+import com.jie.game.ConsoleGame;
+import com.jie.game.GameBoard;
+
 @SpringBootApplication
 @Configuration
-@ComponentScan({ "com.jie.app", "com.jie.controller" })
-public class TictactoeApplication {
+@ComponentScan({ "com.jie.app", "com.jie.controller.*" })
+public class WebApplication {
 
-	// @Bean
-	// public Game game() {
-	// return new Game();
-	// }
-	//
-	// @Bean
-	// public GameBoard gameBoard() {
-	// return new GameBoard();
-	// }
-	//
+	@Bean
+	public ConsoleGame game() {
+		return new ConsoleGame();
+	}
+
+	@Bean
+	public GameBoard gameBoard() {
+		return new GameBoard();
+	}
+
 	// @Bean
 	// public Scanner scanner() {
 	// return new Scanner(System.in);
 	// }
 
+	// @Bean
+	// public WebMvcConfigurerAdapter forwardToIndex() {
+	// return new WebMvcConfigurerAdapter() {
+	// @Override
+	// public void addViewControllers(ViewControllerRegistry registry) {
+	// // forward requests to /admin and /user to their index.html
+	// registry.addViewController("/admin").setViewName(
+	// "forward:/admin/index.html");
+	// registry.addViewController("/user").setViewName(
+	// "forward:/user/index.html");
+	// }
+	// };
+	// }
+
 	public static void main(String[] args) {
-		SpringApplication.run(TictactoeApplication.class, args);
+		SpringApplication.run(WebApplication.class, args);
 	}
 
 	@Bean

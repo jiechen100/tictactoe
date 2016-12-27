@@ -66,12 +66,18 @@ public class Machine extends Player {
 
 					pick--;
 					if (pick < 0) {
-						if (badMove == null || badMove[0][0] != row + 1 || badMove[0][1] != col + 1) {
+						if (badMove == null || badMove[0][0] != row + 1
+								|| badMove[0][1] != col + 1) {
 							gameBoard.setGrid(row, col, true);
 							return true;
 						}
 
-						System.out.println("matched badMove:(" + badMove[0][0] + "," + badMove[0][1] + ")");
+						if (gameBoard.isConsoleGame()) {
+							System.out
+									.println("matched badMove:("
+											+ badMove[0][0] + ","
+											+ badMove[0][1] + ")");
+						}
 
 						if (aiRow > 0) {
 							gameBoard.setGrid(aiRow, aiCol, true);

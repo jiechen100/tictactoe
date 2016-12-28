@@ -15,24 +15,28 @@ public class Person extends Player {
 
 	@Override
 	public boolean move() {
-		while (true) {
+		if (gameBoard.isConsoleGame()) {
+			while (true) {
 
-			String inStr = scanIn.nextLine();
+				String inStr = scanIn.nextLine();
 
-			if (inStr == null || inStr.isEmpty()) {
-				if (gameBoard.isConsoleGame()) {
+				if (inStr == null || inStr.isEmpty()) {
+
 					System.out.println("Game is over.");
-				}
-				return false;
-			}
 
-			int[] xy = convertToInt(inStr);
-			if (gameBoard.validateYourMove(xy, true)) {
-				gameBoard.setGrid(xy[0] - 1, xy[1] - 1, false);
-				// print();
-				return true;
+					return false;
+				}
+
+				int[] xy = convertToInt(inStr);
+				if (gameBoard.validateYourMove(xy, true)) {
+					gameBoard.setGrid(xy[0] - 1, xy[1] - 1, false);
+					// print();
+					return true;
+				}
 			}
 		}
+		
+		return false;
 	}
 
 	private int[] convertToInt(String s) {

@@ -10,29 +10,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.jie.game.BoardType;
-import com.jie.game.ConsoleGame;
 import com.jie.game.GameBoard;
 
 @SpringBootApplication
 @Configuration
-@ComponentScan({ "com.jie.app", "com.jie.controller.*" })
+@ComponentScan({ "com.jie.controller.*" })
 public class WebApplication {
-
-	@Bean
-	public ConsoleGame game() {
-		return new ConsoleGame();
-	}
-
 	@Bean
 	public GameBoard gameBoard() {
+		System.out
+				.println(this.getClass().getCanonicalName() + "::gameBoard()");
 		return new GameBoard();
 	}
-
-	// @Bean
-	// public Scanner scanner() {
-	// return new Scanner(System.in);
-	// }
 
 	// @Bean
 	// public WebMvcConfigurerAdapter forwardToIndex() {
@@ -57,7 +46,7 @@ public class WebApplication {
 		return args -> {
 
 			System.out
-					.println("Let's inspect the beans provided by Spring Boot:");
+					.println("Let's inspect the beans:");
 
 			String[] beanNames = ctx.getBeanDefinitionNames();
 			Arrays.sort(beanNames);

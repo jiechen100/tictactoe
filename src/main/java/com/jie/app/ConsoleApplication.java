@@ -8,20 +8,26 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import com.jie.game.ConsoleGame;
 import com.jie.game.GameBoard;
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class ConsoleApplication {
 
 	@Bean
-	public ConsoleGame game() {
+	public ConsoleGame consoleGame() {
+		System.out.println(this.getClass().getCanonicalName()
+				+ "::consoleGame()");
 		return new ConsoleGame();
 	}
 
 	@Bean
 	public GameBoard gameBoard() {
+		System.out
+				.println(this.getClass().getCanonicalName() + "::gameBoard()");
 		return new GameBoard();
 	}
 
@@ -39,8 +45,7 @@ public class ConsoleApplication {
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 
-			System.out
-					.println("Let's inspect the beans provided by Spring Boot:");
+			System.out.println("Let's inspect the beans:");
 
 			String[] beanNames = ctx.getBeanDefinitionNames();
 			Arrays.sort(beanNames);

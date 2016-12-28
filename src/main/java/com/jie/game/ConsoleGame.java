@@ -42,7 +42,8 @@ public class ConsoleGame {
 
 		Player[] players = { new Machine(), new Person() };
 
-		String[] filePaths = { filepath1, filepath2 };
+		String[] filePaths = { "data" + File.separator + filepath1,
+				"data" + File.separator + filepath2 };
 
 		BufferedWriter fos = null;
 		BufferedReader fis = null;

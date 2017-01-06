@@ -10,18 +10,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.jie.game.GameBoard;
-
 @SpringBootApplication
 @Configuration
 @ComponentScan({ "com.jie.controller.*" })
 public class WebApplication {
-	@Bean
-	public GameBoard gameBoard() {
-		System.out
-				.println(this.getClass().getCanonicalName() + "::gameBoard()");
-		return new GameBoard();
-	}
+	// @Bean
+	// public GameBoard gameBoard() {
+	// System.out
+	// .println(this.getClass().getCanonicalName() + "::gameBoard()");
+	// return new GameBoard();
+	// }
 
 	// @Bean
 	// public WebMvcConfigurerAdapter forwardToIndex() {

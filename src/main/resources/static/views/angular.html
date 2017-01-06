@@ -1,0 +1,29 @@
+<html ng-app>
+<head>
+  <title>Hello World in AngularJS</title>
+</head>
+<body ng-controller="TodoController">
+  <ul>
+    <li ng-repeat="todo in todos">
+      <input type="checkbox" ng-model="todo.completed">
+      {{ todo.name }}
+    </li>
+  </ul>
+  <script>
+    function TodoController($scope){
+      $scope.todos = [
+        { name: 'Master HTML/CSS/Javascript', completed: true },
+        { name: 'Learn AngularJS', completed: false },
+        { name: 'Build NodeJS backend', completed: false },
+        { name: 'Get started with ExpressJS', completed: false },
+        { name: 'Setup MongoDB database', completed: false },
+        { name: 'Be awesome!', completed: false },
+      ]
+    }
+  </script>
+
+<input ng-model="name" placeholder="Type world..."> Hello {{name}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+</body>
+</html>

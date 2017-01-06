@@ -1,6 +1,6 @@
-drop table if exists test
-create table test(id int primary key, name varchar(255))
-insert into test values(1,'Hello')
-insert into test values(2,'World')
+drop table if exists Employee
+create table Employee(id int primary key, name varchar(255))
+insert into Employee values(1,'Hello')
+insert into Employee values(2,'World')
 
-select * from test order by id
+select * from Employee order by id

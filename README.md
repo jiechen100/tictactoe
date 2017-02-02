@@ -1,6 +1,7 @@
 # tictactoe
 
-This is a Tic Tac Toe game between a human and a machine. The rules are:
+This is a Tic Tac Toe game between a human and a machine. 
+Play rules:
 1. Machine goes first.
 2. All steps of the machine lose are recorded.
 3. Any machine lose pattern will produce 3 other lose patterns by rotating 90 degree

@@ -8,9 +8,9 @@ Play rules:
 
 2. All steps of the machine lose are recorded.
 
-3. Any machine lose pattern will produce 3 other lose patterns by rotating 90 degree
+3. Any machine lose pattern will produce 3 other lose patterns by rotating 90 degree.
 
-4. Machine will not pick a position if the previous steps and this step match a lose pattern
+4. Machine will not pick a position if the previous steps and this step match a lose pattern.
 
 
 Spring Boot application
